@@ -6,7 +6,7 @@
 /*   By: mfinette <mfinette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 08:46:05 by mfinette          #+#    #+#             */
-/*   Updated: 2022/12/02 07:52:36 by mfinette         ###   ########.fr       */
+/*   Updated: 2022/12/03 11:54:20 by mfinette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,10 @@ static void	send_char(int pid, char c)
 {
 	int	index;
 	int	binary_c;
+	int	time;
 
 	index = 0;
+	time = 0;
 	binary_c = dec_to_bin(c);
 	while (index < 8)
 	{
@@ -25,7 +27,15 @@ static void	send_char(int pid, char c)
 			kill(pid, SIGUSR2);
 		else
 			kill(pid, SIGUSR1);
-		usleep(100);
+		usleep(10);
+		usleep(10);
+		usleep(10);
+		usleep(10);
+		usleep(10);
+		usleep(10);
+		usleep(10);
+		usleep(10);
+		usleep(10);
 		index++;
 	}
 }
